@@ -7,16 +7,11 @@ layout: default
         <div class="intro-text">
             <div class="intro-heading">where leaders are made</div>
         </div>
-        <div class="btn_meetup" >
-            <a href="http://www.meetup.com" alt="meetup date">
-               <div class="meetup_text">
-                   <p>September</p>
-                   <p>17th</p>
-               </div>
-            </a>
-            <div class="butmeetupshadow"></div>
-        </div>
+        
+        {% include meetup_button.html %}
+        
     </div>
+    
 </header>
 <!-- Welcome Section -->
 <section id="about" class="blueback spacer">
@@ -36,7 +31,8 @@ layout: default
         </div>
     </div>
 </section>
-<!-- About -->
+
+<!-- why we speak -->
 <section class="blueback spacer">
     <div class="container">
         <div class="row">
@@ -46,88 +42,22 @@ layout: default
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{site.baseurl}}/img/team/1.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Kay Garland</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae atque modi, nam recusandae, nesciunt perferendis reiciendis laborum ipsa reprehenderit, quae totam. Dolorum soluta ea quas illum officia harum, facilis fugit.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{site.baseurl}}/img/team/Tom_M_225x225.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Larry Parker</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quasi voluptatum, molestias sit corporis recusandae libero aut. Itaque, accusantium reiciendis maxime. Atque quibusdam, dicta expedita non officiis placeat voluptatem. Repellat.</p>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img src="{{site.baseurl}}/img/team/3.jpg" class="img-responsive img-circle" alt="">
-                    <h4>Diana Pertersen</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque explicabo unde incidunt atque, magni commodi officiis quae tenetur culpa nobis recusandae eos quibusdam consequatur voluptatem illo sequi accusamus eveniet molestiae!</p>
-                </div>
-            </div>
+            {% include team-list.html nickname='mags'%}
+            {% include team-list.html nickname='tom'%}
+            {% include team-list.html nickname='neera'%}
         </div>
     </div>
-</secti
+</section>
+  
+
+
 <!-- Typical meeting -->
 <section id="meeting" class="blueback">
         <div class="flexContainer">
-              <div id="meetingInfo1" class="meetingInfo">
-                        <div class="meeting-image">
-                            <a href="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FBMAmersey%2Fvideos%2F1217182064966853%2F&show_text=0&width=560" alt="Toms BMA speech in Chester">
-                                <img src="{{site.baseurl}}/img/vid_pics/toms_bma_speech_grey.jpg">
-                            </a>
-                       </div>
-                        <div class="meeting-panel">
-                            <div class="meeting-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">a typical Toastmasters meeting</h4>
-                            </div>
-                            <div class="meeting-body">
-                                <p>Pay a “virtual visit” to the Bright and Early Toastmasters club. This video will help you better understand what happens during a meeting and how the experience can benefit you.</p>
-                            </div>
-                        </div>
-            </div>
-            
-            
-            
-            <div id="meetingInfo2" class="meetingInfo">
-                        <div class="meeting-image">
-                            <a href="https://www.youtube.com/embed/WStG9TnG0Gw" alt="a typical meeting">
-                                <img src="{{site.baseurl}}/img/vid_pics/club_experience_grey.jpg">
-                            </a>
-                        </div>
-                        <div class="meeting-panel">
-                            <div class="meeting-heading">
-                                <h4>2009-2011</h4>
-                                <h4 class="subheading">a typical Toastmasters meeting</h4>
-                            </div>
-                            <div class="meeting-body">
-                                <p>Pay a “virtual visit” to the Bright and Early Toastmasters club. This video will help you better understand what happens during a meeting and how the experience can benefit you.</p>
-                            </div>
-                        </div>
-            </div>
-           
-            <div id="meetingInfo3" class="meetingInfo">
-                       <div class="meeting-image">
-                            <a href="https://www.youtube.com/embed/AykYRO5d_lI" alt="speaking tips">
-                                <img src="{{site.baseurl}}/img/vid_pics/public_tips_grey.jpg">
-                            </a>
-                        </div>
-                        <div class="meeting-panel">
-                            <div class="meeting-heading">
-                                <h4>March 2011</h4>
-                                <h4 class="subheading">Public speaking Tips</h4>
-                            </div>
-                            <div class="meeting-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-             </div>          
+            {% include video-list.html subject='typical_meeting' %}
+            {% include video-list.html subject='toms_speech' %}
+            {% include video-list.html subject='speaking_tips' %}
+              
     </div>
 </section>
 
@@ -199,8 +129,8 @@ layout: default
                <h4 class="section-heading text-center">Where we meet</h4>
                 <div class="map">
                    <h3 class="section-subheading text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, et consequuntur adipisci. Neque cum, beatae aut reiciendis nobis consectetur illum enim necessitatibus quaerat consequuntur nemo similique laborum earum. Enim, recusandae.</h3>
-                    
-                        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4781.714195425176!2d-2.8921485795279462!3d53.18454326042638!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x695c761c4ea36c00!2sThe+Ship+Inn!5e0!3m2!1sen!2suk!4v1464611696159" width="600" height="450"></iframe>
+                  
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5002.008664182032!2d-2.8907268694064836!3d53.185147114698!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x695c761c4ea36c00!2sThe+Ship+Inn!5e0!3m2!1sen!2suk!4v1475070606975" width="600" height="450"></iframe>
                     
                 </div>
             </div>
