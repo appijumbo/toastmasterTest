@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="{{site.baseurl}}/favicons/safari-pinned-tab2_opt.svg" color="#004165">
     <meta name="theme-color" content="#770e29">
 
-    <title>Chester Speaking Club v1</title>
+    <title>{{ site.data.clubName.description }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{site.baseurl}}/css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
                          
                              <a class="navbar-brand page-scroll logo_picntext" href="#page-top">
                              <img src="{{site.baseurl}}/img/logos/Blue_logo_120x100.png" alt="brand">
-                             Chester Speaking Club
+                             {{ site.data.clubName.description }}
                              </a>
                          
                     </div>
@@ -120,7 +120,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-left">
-                    <span class="copyright">&copy; Chester Speaking Club 2016</span>
+                    <span class="copyright">&copy; {{ site.data.clubName.description }} 2016</span>
                 </div>
                 <div class="col-md-6 text-right">
                         <a href="#tandcs_link" class="list-inline quicklinks">Terms</a>
