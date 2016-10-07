@@ -10,6 +10,12 @@ $(function() {
             $("#btnSubmit").attr("disabled", true);
             event.preventDefault();
             
+            
+            // Get club email from Jekyll site.data.clubInfo.clubEmail via the DOM
+            var clubEmail =$("#clubEmail").attr("data-clubemail");
+            console.log("\nclubEmail = " + clubEmail);
+
+            
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
@@ -27,7 +33,7 @@ $(function() {
             
     //******    send to formspree    *******
         $.ajax({
-            url:'https://formspree.io/test@appijumbo.com',
+            url:'https://formspree.io/'+clubEmail,
             method:'POST',
             data:{
                 name:name,
