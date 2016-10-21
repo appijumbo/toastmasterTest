@@ -34,7 +34,9 @@ Short date
 ***************************/
 
 (function(){    // put JS in an IIFE to keep date variables localy scoped
-    var meetupSig = 'https://api.meetup.com/Chester-Speaking-Club/events?photo-host=public&page=1&sig_id=155522042&only=time&sig=9176d30934d8d1de7af5c64931c6786adbb1f0d5';
+    
+    var meetupApi =$("#meetupApi").attr("data-meetupapi");
+    console.log("\neetupApi = " + meetupApi);
     
     var theMonth = document.getElementById("theMonth");
     var theDate = document.getElementById("theDate");
@@ -43,7 +45,7 @@ Short date
     
     /***********  Get time from secure meetup API   *****/
     $.ajax({
-        url: meetupSig,
+        url: meetupApi,
         method:'GET',
         dataType: 'jsonp',
         /*dataType: 'jsonp': If this line is removed this ajax always fails 'XMLHttpRequest cannot load https://api.meetup.com/Chester-Speaking-Club..... Origin http://localhost:4000 is not allowed by Access-Control-Allow-Origin' error.
