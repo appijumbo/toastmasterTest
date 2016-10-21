@@ -911,16 +911,29 @@ footer .tsandcs[data-display="show"]{
     left: 69vw;
    }
     
-    .meetup_text{
-    display: block;
-    padding: 15px 0px 10px 0px;
-    color: white;
+     .meetup_text{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        color: white;
+        padding-left: 7px;
+        width: 80px;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 1.4rem;
+
+    #theDate{
+    font-size: 2rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 1.2rem;
+    }
+
+    #theMonth{
+    font-size: 2rem;
     }
     
     .meetup_text:hover,
@@ -1020,9 +1033,9 @@ footer .tsandcs[data-display="show"]{
      -moz-box-shadow: 0 22px 8px -8px black;
           box-shadow: 0 22px 8px -8px black;
     
-    width: 100px;
-    height: 100px;
-    padding-top: 10px;  
+    width: 80px;
+    height: 80px;
+    padding-top: 5px;  
     font-size: 1.3rem;
     transition: all .2s cubic-bezier(1,-0.29, 0.54, 1.1);
     z-index: 200;
@@ -1031,16 +1044,30 @@ footer .tsandcs[data-display="show"]{
     
    }
     
+    
     .meetup_text{
-    display: block;
-    padding: 15px 0px 10px 0px;
-    color: white;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 1.4rem;
+
+    #theDate{
+    font-size: 1.7rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 1.2rem;
+    }
+
+    #theMonth{
+    font-size: 1.8vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
     }
     
     .meetup_text:hover,
@@ -1188,15 +1215,29 @@ footer .tsandcs[data-display="show"]{
     
     
     .meetup_text{
-        display: block;
-        padding: 30px 0px 30px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 3rem;
         color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 2.2rem;
+
+    #theDate{
+    font-size: 3rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 2rem;
+    }
+
+    #theMonth{
+    font-size: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     }
     
      .meetup_text:hover{
@@ -1337,15 +1378,29 @@ footer .tsandcs[data-display="show"]{
     
     
     .meetup_text{
-        display: block;
-        padding: 30px 0px 30px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 1rem;
         color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 2.2rem;
+
+    #theDate{
+    font-size: 3rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 2rem;
+    }
+
+    #theMonth{
+    font-size: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     }
     
      .meetup_text:hover{
@@ -1461,6 +1516,10 @@ footer .tsandcs[data-display="show"]{
     
  
     .btn_meetup a{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     position:absolute;
     width: 140%;
     height: 140%;
@@ -1473,16 +1532,30 @@ footer .tsandcs[data-display="show"]{
     }
     
     
-    .meetup_text{
-        display: block;
-        padding: 30px 0px 30px 0px;
+.meetup_text{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 3rem;
         color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 3rem;
+
+    #theDate{
+    font-size: 4rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 2.5rem;
+    }
+
+    #theMonth{
+    font-size: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     }
     
      .meetup_text:hover{
@@ -1573,11 +1646,15 @@ footer .tsandcs[data-display="show"]{
     }
     
   .btn_meetup a{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     position:absolute;
     width: 140%;
     height: 140%;
     background-image: url(../img/button_meetup_300x250_opt.svg);
-    top: 70px;
+    top: 30px;
     font-size: 3rem;
     z-index: 2000;
     transition: all 0.2s cubic-bezier(.76, .27, .31, 1.25);
@@ -1585,16 +1662,31 @@ footer .tsandcs[data-display="show"]{
     }
     
     
-    .meetup_text{
-        display: block;
-        padding: 30px 0px 30px 0px;
+.meetup_text{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 0;
         color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 3rem;
+
+    #theDate{
+    font-size: 4rem;
+    }
+    
+    
+    #theDateIndices{
+    font-size: 2rem;
+    }
+
+    #theMonth{
+    font-size: 3.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1.5rem;
     }
     
      .meetup_text:hover{
@@ -1702,16 +1794,31 @@ footer .tsandcs[data-display="show"]{
     
     
     .meetup_text{
-        display: block;
-        padding: 30px 0px 30px 0px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 3rem;
         color: white;
     }
     
     
-    .meetup_text p{
-    text-align: center;
-    font-size: 3rem;
+
+    #theDate{
+    font-size: 4rem;
     }
+    
+    
+    #theDateIndices{
+    font-size: 2.5rem;
+    }
+
+    #theMonth{
+    font-size: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    }
+    
     
      .meetup_text:hover{
      color: #fed136;  /* yellow  */

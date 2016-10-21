@@ -1,140 +1,161 @@
-/*
+/*******************
 
-function fetchGroups(url, cb, data) {
-    if(!data) data = [];
+Group Events -json basic api version 3
+GET /:urlname/events
+Host: api.meetup.com
+url name: Chester-Speaking-Club
+page :
+nly: time
+
+https://secure.meetup.com/meetup_api/console/?path=/:urlname/events
+
+Hence - Request URL (select chester-spaeaking -club link and filter for 1 page, time)
+
+https://api.meetup.com/Chester-Speaking-Club/events?&sign=true&photo-host=public&page=1&only=time
+
+
+Signed URL - (an API Key signature https://www.meetup.com/meetup_api/auth/#keysign)
+Similar to OAuth signing, this method of authentication certifies that a request was approved by a particular user. Unlike OAuth-signed requests, key-signed requests may be reused and recycled as long as their corresponding API key is valid. 
+
+If a signed URL is released to the public, any application can use it to interact with Meetup as if it had that API key; the difference is that it can not change definitive parameters or use the signature against other API methods.
+
+https://api.meetup.com/Chester-Speaking-Club/events?photo-host=public&page=1&sig_id=155522042&only=time&sig=9176d30934d8d1de7af5c64931c6786adbb1f0d5
+
+To check date works and puts into button ok
+
+Long date
+
+'December 25, 1995 23:15:30'
+
+Short date
+
+'May 06, 2017 10:14:12'
+
+***************************/
+
+(function(){    // put JS in an IIFE to keep date variables localy scoped
+    var meetupSig = 'https://api.meetup.com/Chester-Speaking-Club/events?photo-host=public&page=1&sig_id=155522042&only=time&sig=9176d30934d8d1de7af5c64931c6786adbb1f0d5';
     
+    var theMonth = document.getElementById("theMonth");
+    var theDate = document.getElementById("theDate");
+    var theDateIndices = document.getElementById("theDateIndices");
+    var timeOfMeetup = 0;   // 1st Jan 1970 just as a blank
+    
+    /***********  Get time from secure meetup API   *****/
     $.ajax({
-        
-        dataType:'jsonp',
-        method:'get',
-        url:url,
-        success:function(result) {
-            console.log('back with ' + result.data.length +' results');
-            console.dir(result);
-            //add to data
-            data.push.apply(data, result.data);
-            if(result.meta.next_link) {
-                var nextUrl = result.meta.next_link;
-                fetchGroups(nextUrl, cb, data);
-            } else {
-                cb(data);   
+        url: meetupSig,
+        method:'GET',
+        dataType: 'jsonp',
+        /*dataType: 'jsonp': If this line is removed this ajax always fails 'XMLHttpRequest cannot load https://api.meetup.com/Chester-Speaking-Club..... Origin http://localhost:4000 is not allowed by Access-Control-Allow-Origin' error.
+        So use the JSONP (JSON Padding) interface. It allows you to make external domain requests without proxy servers or fancy header stuff. http://usejquery.com/blog/jquery-cross-domain-ajax-guide */
+        success: function(meetupData){
+            console.log("** -> SUCCESS in ajax meetup_api.js   meetupData = " + meetupData);
+            console.log(JSON.stringify(meetupData));
+            console.log("--> " + Object.keys(meetupData));
+            
+            var mArray = [];
+            $.each(meetupData, function(i, meetTime){
+                mArray.push(meetTime);
             }
-        }
-    }); 
-    
-}
-
-$(document).ready(function() {
-    
-    var $results = $("#results");
-
-    $results.html("<p>Finding meetups with Ionic in the description.</p>");
-
-    fetchGroups("https://api.meetup.com/find/groups?&photo-host=public&page=50&text=ionic&sig_id=2109318&radius=global&order=newest&sig=ad335a79ccce2b1bb65b27fe10ea6836305e5533&callback=?", function(res) {
-        console.log("totally done");
-        console.dir(res);   
-
-        var s = "";
-        for(var i=0;i<res.length; i++) {
-            var group = res[i];
-            s += "<h2>"+(i+1)+" <a href='"+group.link+"'>"+group.name+"</a></h2>";
-            if(group.group_photo && group.group_photo.thumb_link) {
-                s += "<img src=\"" + group.group_photo.thumb_link + "\" align=\"left\">";
+                  );
+            
+            timeOfMeetup = mArray[1][0].time;  
+            console.log("timeOfMeetup = " + timeOfMeetup);
+            
+            var meetupDate = new Date(timeOfMeetup);  // convert timeOfMeetup to real date
+            
+            var dayofmonth = meetupDate.getDate();
+            var month = meetupDate.getMonth();
+            console.log("meetupDate = " + meetupDate);
+            console.log("day of month = " + dayofmonth);
+            console.log("month -> = " + month);
+            
+            
+            theDate.innerHTML = dayofmonth;
+            
+            var date_indices=""; 
+            
+            if(dayofmonth<=3){
+                switch (dayofmonth) {
+                        
+                    case 1:
+                        date_indices = "st";
+                        break;
+                        
+                    case 2:
+                        date_indices = "nd";
+                        break;
+                        
+                    case 3:
+                        date_indices = "rd";
+                        break;        
+                }
             }
-            s += "<p>Location: "+group.city + ", " + group.state + " " + group.country + "</p><br clear=\"left\">";
+            else{ date_indices = "th";}
+            
+            theDateIndices.innerHTML = date_indices;
+            
+            
+            var monthString="";
+            
+            switch (month) {
+                    
+                case 0:
+                    monthString = "January";
+                    break;
+                    
+                case 1:
+                    monthString = "Feburary";
+                    break;
+                    
+                case 2:
+                    monthString = "March";
+                    break;
+                    
+                case 3:
+                    monthString = "April";
+                    break;
+                    
+                case 4:
+                    monthString = "May";
+                    break;
+                    
+                case 5:
+                    monthString = "June";
+                    break;
+                    
+                case 6:
+                    monthString = "July";
+                    break;
+                    
+                case 7:
+                    monthString = "August";
+                    break;
+                    
+                case 8:
+                    monthString = "September";
+                    break;
+                    
+                case 9:
+                    monthString = "October";
+                    break;
+                    
+                case 10:
+                    monthString = "November";
+                    break;
+                    
+                case 11:
+                    monthString = "December";
+                    break;        
+            }
+            
+            theMonth.innerHTML = monthString;
+            
+        },
+        
+        error: function(){
+            console.log("** -> ERROR in ajax meetup_api.js\n");
         }
-        $results.html(s);
-        
-        
     });
-        
-});
-*/
 
-var year = new Date().getFullYear();
-console.log("year = " + year);
-
-var month = new Date().getMonth();
-console.log("Month = " + month);
-
-var date = new Date().getDate();
-console.log("date = " + date );
-
-
-var dayOfTheWeek=""; 
-switch (new Date().getDay()) {
-        
-    case 0:
-        dayOfTheWeek = "Sun";
-    break;
-        
-    case 1:
-        dayOfTheWeek = "Mon";
-    break;
-        
-    case 2:
-        dayOfTheWeek = "Tue";
-    break;
-        
-    case 3:
-        dayOfTheWeek = "Wednes";
-    break;
-        
-    case 4:
-        dayOfTheWeek = "Thurs";
-    break;
-        
-    case 5:
-        dayOfTheWeek = "Fri";
-    break;
-        
-    case 6:
-        dayOfTheWeek = "Satur";
-    break;
-        
-}
-
-console.log("day = " + dayOfTheWeek + "day");
-
-
-var hours = new Date().getHours();
-console.log("hours = " + hours );
-
-var minutes = new Date().getMinutes();
-console.log("minutes = " + minutes );
-
-
-
-/******************************/
-/* Quick and dirty method */
-    var time = new Date().getTime();
-    var theDate = new Date(time);
-    console.log(theDate.toString());
-/******************************/
-
-
-
-/******************************/
-
-/*      Meetup API time in milliseconds     */
-/*      https://api.meetup.com/Chester-Speaking-Club/events/234296860?&sign=true&photo-host=public&only=time       */
-
-/* Responds with 
-
-        HTTP/1.1 200 success
-        {
-        "time": 1475605800000
-        }
-
-*/
-
-/* Quick n dirty - don't use this for button */
-    var theDate = new Date(1475605800000);
-    console.log(theDate.toString());
-
-var hours = new Date(1475605800000).getHours();
-console.log("hours = " + hours );
-
-var minutes = new Date(1475605800000).getMinutes();
-console.log("minutes = " + minutes );
-
+}());
