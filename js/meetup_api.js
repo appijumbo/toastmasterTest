@@ -23,20 +23,165 @@ https://api.meetup.com/Chester-Speaking-Club/events?photo-host=public&page=1&sig
 
 To check date works and puts into button ok
 
-Long date
+Use Epoch & Unix Timestamp Conversion Tools   http://www.epochconverter.com
 
-'December 25, 1995 23:15:30'
 
-Short date
-
+----------------------- 
+3 char date   May
 'May 06, 2017 10:14:12'
+1494065652000
+(max-width: 991px) and (min-width: 768px) and (orientation: landscape)
+meetup_text     padding-top: 3rem;
+                padding-left: 30px;
+                padding-right: 30px;
 
+
+
+
+-----------------------
+4 char date   June  July
+'June 25, 1995 23:15:30'
+804122130000
+@media (min-width: 1200px)
+meetup_text     padding-left: 20px;
+                padding-right: 20px;
+                
+@media (max-width: 991px) and (min-width: 768px) and (orientation: landscape)
+meetup_text     padding-left: 20px;
+                padding-right: 20px;
+
+
+
+
+-----------------------
+5 char date  March  April
+'March 25, 1995 23:15:30'
+796173330000
+
+@media (max-width: 767px) and (orientation: landscape)
+meetup_text     padding-left: 3px;
+                padding-right: 3px;
+
+@media (min-width: 1200px)
+meetup_text     padding-left: 15px;
+                padding-right: 15px;
+
+@media (max-width: 991px) and (min-width: 768px) and (orientation: landscape)
+meetup_text     padding-left: 15px;
+                padding-right: 15px;
+                
+@media (max-width: 1199px) and (min-width: 992px) and (orientation: landscape)
+meetup_text     padding-left: 15px;
+                padding-right: 15px;
+                
+          
+          
+----------------------
+6 char date  August
+'August 25, 1995 23:15:30'
+circle button: 
+(max-width: 767px) and (orientation: landscape)
+meetup_text    padding-left: 0px;
+
+(max-width: 767px) and (orientation: portrait)
+meetup_text     padding-left: 5px;
+
+(max-width: 991px) and (min-width: 768px) and (orientation: landscape): meetup_text   padding-left: 5px;
+809392530000
+
+
+
+
+----------------------
+7 char   Jan   Oct
+'Mon, 24 Oct 2016 13:19:43 GMT'
+1477315183000
+@media (max-width: 767px) and (orientation: portrait)
+meetup_text    padding-top: 0;
+               padding-left: 0;
+               padding-right: 0;
+                
+#theMonth {
+    font-size: 1.8rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+@media (max-width: 767px) and (orientation: landscape)
+#theMonth {
+    font-size: 1.4rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+-----------------------
+8 char date    Feb  Nov  Dec
+circle button: needs smaller month text and shifting up and to the left
+'December 25, 1995 23:15:30'
+819933330000
+@media (max-width: 767px) and (orientation: landscape)
+meetup_text   padding-left: 15px;
+              padding-right: 15px;
+              
+#theMonth {
+    font-size: 1.2rem;
+            padding-left: 0;
+            padding-right: 0;
+}
+
+@media (max-width: 767px) and (orientation: portrait)
+#theMonth {
+    font-size: 1.4rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+@media (max-width: 1199px) and (min-width: 992px) and (orientation: portrait)
+meetup_text padding-top: 0rem;
+
+#theMonth {
+    
+    padding-bottom: 35px;
+    }
+
+
+-------------------
+9 char  Sep
+'Mon, 24 Sep 2016 13:13:21 GMT'
+1474722801000
+@media (max-width: 767px) and (orientation: portrait)
+meetup_text    padding-top: 0;
+               padding-left: 0;
+               padding-right: 0;
+                
+#theMonth {
+    font-size: 1.4rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+@media (max-width: 767px) and (orientation: landscape)
+meetup_text    padding-top: 0;
+               padding-left: 0;
+               padding-right: 0;
+#theMonth {
+    font-size: 1.1rem;
+    padding-left: 0;
+    padding-right: 0;
+}
 ***************************/
 
 (function(){    // put JS in an IIFE to keep date variables localy scoped
+
+
     
-    var meetupApi =$("#meetupApi").attr("data-meetupapi");
-    console.log("\neetupApi = " + meetupApi);
+    var meetupApi =$("#meetupApi").attr("data-meetupapi"); 
+    console.log("\nmeetupApi = " + meetupApi);
     
     var theMonth = document.getElementById("theMonth");
     var theDate = document.getElementById("theDate");
@@ -64,7 +209,10 @@ Short date
             timeOfMeetup = mArray[1][0].time;  
             console.log("timeOfMeetup = " + timeOfMeetup);
             
+            /* timeOfMeetup =  1494065652000;   /***** REMOVE THIS !!!!  ******/
+            
             var meetupDate = new Date(timeOfMeetup);  // convert timeOfMeetup to real date
+            
             
             var dayofmonth = meetupDate.getDate();
             var month = meetupDate.getMonth();
@@ -77,6 +225,7 @@ Short date
             
             var date_indices=""; 
             
+   
             if(dayofmonth<=3){
                 switch (dayofmonth) {
                         
@@ -94,62 +243,32 @@ Short date
                 }
             }
             else{ date_indices = "th";}
+             
             
-            theDateIndices.innerHTML = date_indices;
-            
+            theDateIndices.innerHTML = date_indices;   
             
             var monthString="";
             
-            switch (month) {
-                    
-                case 0:
-                    monthString = "January";
-                    break;
-                    
-                case 1:
-                    monthString = "Feburary";
-                    break;
-                    
-                case 2:
-                    monthString = "March";
-                    break;
-                    
-                case 3:
-                    monthString = "April";
-                    break;
-                    
-                case 4:
-                    monthString = "May";
-                    break;
-                    
-                case 5:
-                    monthString = "June";
-                    break;
-                    
-                case 6:
-                    monthString = "July";
-                    break;
-                    
-                case 7:
-                    monthString = "August";
-                    break;
-                    
-                case 8:
-                    monthString = "September";
-                    break;
-                    
-                case 9:
-                    monthString = "October";
-                    break;
-                    
-                case 10:
-                    monthString = "November";
-                    break;
-                    
-                case 11:
-                    monthString = "December";
-                    break;        
-            }
+            var monthEnglish = [
+                    {"monthName":"January"},
+                    {"monthName":"February"},
+                    {"monthName":"March"},
+                    {"monthName":"April"},
+                    {"monthName":"May"},
+                    {"monthName":"June"},
+                    {"monthName":"July"},
+                    {"monthName":"August"},
+                    {"monthName":"September"},
+                    {"monthName":"October"},
+                    {"monthName":"November"},
+                    {"monthName":"December"}
+                ];
+            
+            
+            
+            monthString = monthEnglish[month].monthName;
+         
+            console.log("monthString = " + monthString);
             
             theMonth.innerHTML = monthString;
             
