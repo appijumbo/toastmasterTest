@@ -209,8 +209,9 @@ meetup_text    padding-top: 0;
             timeOfMeetup = mArray[1][0].time;  
             console.log("timeOfMeetup = " + timeOfMeetup);
             
-            /* timeOfMeetup =  1494065652000;   /***** REMOVE THIS !!!!  ******/
+            timeOfMeetup =  1494065652000;   /*May ** REMOVE THIS !!!!  ******/
             
+            /* timeOfMeetup =  1474722801000;   /Sep ** REMOVE THIS !!!!  ******/
             var meetupDate = new Date(timeOfMeetup);  // convert timeOfMeetup to real date
             
             

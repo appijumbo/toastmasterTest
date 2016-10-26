@@ -903,12 +903,14 @@ footer .tsandcs[data-display="show"]{
     
     width: 100px;
     height: 100px;
-    padding-top: 10px;  
+    /*padding-top: 10px; */
     font-size: 1.3rem;
     transition: all .2s cubic-bezier(1,-0.29, 0.54, 1.1);
     z-index: 200;
     top: 61vh;
     left: 69vw;
+    justify-content: center;
+    align-items: center;
    }
    
  
@@ -918,9 +920,6 @@ footer .tsandcs[data-display="show"]{
         flex-direction: row;
         justify-content: center;
         color: white;
-        padding-top: 5px;
-        padding-left: 10px;
-        padding-right: 15px;
     }
     
     
@@ -935,10 +934,12 @@ footer .tsandcs[data-display="show"]{
     }
 
     #theMonth{
-    font-size: 2rem;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    font-size: 115%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     }
+    
+    
     
     .meetup_text:hover,
     .meetup_text:active,
@@ -1037,45 +1038,44 @@ footer .tsandcs[data-display="show"]{
      -moz-box-shadow: 0 22px 8px -8px black;
           box-shadow: 0 22px 8px -8px black;
     
-    width: 80px;
-    height: 80px;
-    padding-top: 5px;  
+    width: 100px;
+    height: 100px;
+    /*padding-top: 10px; */
     font-size: 1.3rem;
     transition: all .2s cubic-bezier(1,-0.29, 0.54, 1.1);
     z-index: 200;
-    top: 63vh;
-    left: 77vw;
-    
+    top: 61vh;
+    left: 69vw;
+    justify-content: center;
+    align-items: center;
    }
-    
-    
+   
     .meetup_text{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
         color: white;
-        padding-top: 5px;
-        padding-left: 5px;
-        padding-right: 5px;
     }
     
     
 
     #theDate{
-    font-size: 1.7rem;
+    font-size: 2rem;
     }
     
     
     #theDateIndices{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     }
 
     #theMonth{
-    font-size: 1.6rem;
-    padding-left: 1vw;
-    padding-right: 1vw;
+    font-size: 115%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     }
+    
+    
     
     .meetup_text:hover,
     .meetup_text:active,
